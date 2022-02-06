@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 
-interface TestRecord {
-  test: boolean
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,18 +7,25 @@ interface TestRecord {
 })
 
 export class AppComponent {
-  title: string = 'firstapp';
-  isTest: boolean = true
-  currentItem = {
-    name: 'Gerald'
-  }
-  testRecord: TestRecord = {
+  title = 'firstapp';
+  isIfSet = true
+  formName = 'Test'
+  formComponentName = 'Gerald'
+  
+  testRecord = {
     test: false
   }
+  heroes = [
+    {id: 1, name:'Superman'},
+    {id: 2, name:'Batman'},
+    {id: 5, name:'BatGirl'},
+    {id: 3, name:'Robin'},
+    {id: 4, name:'Flash'}
+  ]
 
   ngOnInit () {
     this.testRecord = {
-      test: this.isTest
+      test: true
     }
   }
 }

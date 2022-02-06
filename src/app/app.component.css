@@ -7,6 +7,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .test {
+    background-color: #ff3344
+  }
+
   h1,
   h2,
   h3,
@@ -289,8 +293,4 @@
       display: none;
       visibility: hidden;
     }
-  }
-
-  .test {
-    background-color: #ff0000
   }
