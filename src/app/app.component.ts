@@ -9,23 +9,22 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'firstapp';
   isIfSet = true
-  formName = 'Test'
+  formName = 'Testwert'
   formComponentName = 'Gerald'
   
   testRecord = {
-    test: false
+    test: true,
+    tust: true
   }
+
   heroes = [
     {id: 1, name:'Superman'},
     {id: 2, name:'Batman'},
-    {id: 5, name:'BatGirl'},
+    {id: 6, name:'BatGirl'},
     {id: 3, name:'Robin'},
     {id: 4, name:'Flash'}
   ]
 
   ngOnInit () {
-    this.testRecord = {
-      test: true
-    }
   }
 }

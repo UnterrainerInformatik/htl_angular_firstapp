@@ -69,7 +69,7 @@
     <form>
       <h2>Form with bi-directional databinding in own component</h2>
       <app-text-field [(item)]="formComponentName"></app-text-field> 
-      <br />
+      <br /><br />
       Value of outer variable: {{ formComponentName }}
     </form>
   </div>
@@ -88,7 +88,7 @@
 
   <div>
     <h2>ngFor</h2>
-    <span *ngFor="let hero of heroes; let i = index">[index: {{i}}] {{hero.id}} - {{ hero.name }}<br /></span>
+    <span *ngFor="let hero of heroes; let i = index">index: {{ i }}, {{ hero.id }} - {{ hero.name }}<br /></span>
   </div>
   <br />
   <br />
@@ -110,6 +110,14 @@
           <mat-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</mat-card-content>
           <mat-card-footer>footer</mat-card-footer>
         </mat-card>
+      </section>
+
+      <br />
+      <section>
+        <button mat-stroked-button color="primary"><mat-icon>school</mat-icon> blah und blubb und sowieso</button><br />
+        <button mat-stroked-button color="warn">blah und blubb und sowieso <mat-icon>house</mat-icon></button><br />
+        <button mat-flat-button color="accent">blah und blubb und sowieso</button><br />
+        <button mat-button>blah und blubb und sowieso</button><br />
       </section>
     </div>
     <br />
