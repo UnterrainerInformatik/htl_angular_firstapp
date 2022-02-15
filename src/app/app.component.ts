@@ -25,6 +25,14 @@ export class AppComponent {
     {id: 4, name:'Flash'}
   ]
 
+  myComponentButtonClick () {
+    console.log('The button in our component was clicked.')
+  }
+
+  myComponentCheckboxChange (state: any) {
+    console.log(`State is: ${state}`)
+  }
+
   ngOnInit () {
   }
 }

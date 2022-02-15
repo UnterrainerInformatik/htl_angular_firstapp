@@ -1,0 +1,3 @@
+<mat-checkbox [name]="'myCheckbox' + name" [checked]="state" 
+(change)="onStateChange($event)">{{ text }}</mat-checkbox><br />
+The internal model has the state: {{ state }}

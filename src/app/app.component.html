@@ -152,5 +152,13 @@
     <br />
   </div>
 
+  <div>
+    <h2>MyComponentsModule</h2>
+    <app-button-component text="ein Button" name="mybtn1" (click)="myComponentButtonClick()"></app-button-component><br />
+    <app-checkbox-component text="eine Checkbox" name="mychbx1" (stateChange)="myComponentCheckboxChange($event)"></app-checkbox-component>
+  </div>
+  <br />
+  <br />
+
   <router-outlet></router-outlet>
 </div>

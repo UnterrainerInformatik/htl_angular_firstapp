@@ -9,6 +9,8 @@ import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 
+import { MyComponentsModule } from './my-components/my-components.module'
+
 import { AppComponent } from './app.component';
 import { TextFieldComponent } from './text-field/text-field.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCheckboxModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MyComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
