@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { PeopleService } from './services/people.service';
+import { PersonDto } from './services/dtos/PersonDto';
+import { UserDto } from './services/dtos/UserDto';
 
 @Component({
   selector: 'app-root',
@@ -7,23 +10,41 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'firstapp';
-  isIfSet = true
-  formName = 'Testwert'
-  formComponentName = 'Gerald'
+  public title = 'firstapp';
+  public isIfSet = true
+  public formName = 'Testwert'
+  public formComponentName = 'Gerald'
   
-  testRecord = {
+  public testRecord = {
     test: true,
     tust: true
   }
 
-  heroes = [
+  public heroes = [
     {id: 1, name:'Superman'},
     {id: 2, name:'Batman'},
     {id: 6, name:'BatGirl'},
     {id: 3, name:'Robin'},
     {id: 4, name:'Flash'}
   ]
+
+  public peopleService: PeopleService
+  public me?: UserDto
+  public person?: PersonDto
+  public persons?: Array<PersonDto>
+  public personsString?: String
+
+  constructor (peopleService: PeopleService) {
+    this.peopleService = peopleService
+    this.init()
+  }
+
+  async init() {
+    this.me = await this.peopleService.getCurrentUser()
+    this.person = await this.peopleService.get(1)
+    this.persons = await this.peopleService.getList()
+    this.personsString = JSON.stringify(this.persons)
+  }
 
   myComponentButtonClick () {
     console.log('The button in our component was clicked.')
