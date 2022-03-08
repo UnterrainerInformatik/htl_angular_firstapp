@@ -43,7 +43,7 @@ export class AppComponent {
     this.me = { id: 0, userName: 'no one' } //await this.peopleService.getCurrentUser()
     this.person = await this.peopleService.get(1)
     this.persons = await this.peopleService.getList()
-    this.personsString = JSON.stringify(this.persons)
+    this.personsString = JSON.stringify(this.persons, undefined, 2)
   }
 
   myComponentButtonClick () {
