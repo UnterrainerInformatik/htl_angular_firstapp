@@ -40,7 +40,7 @@ export class AppComponent {
   }
 
   async init() {
-    this.me = await this.peopleService.getCurrentUser()
+    this.me = { id: 0, userName: 'no one' } //await this.peopleService.getCurrentUser()
     this.person = await this.peopleService.get(1)
     this.persons = await this.peopleService.getList()
     this.personsString = JSON.stringify(this.persons)
