@@ -10,6 +10,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list'
 
 import { MyComponentsModule } from './my-components/my-components.module'
 
@@ -31,10 +32,11 @@ import { PeopleService } from './services/people.service';
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatCardModule,
     MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
     MatIconModule,
+    MatListModule,
     MyComponentsModule
   ],
   providers: [],

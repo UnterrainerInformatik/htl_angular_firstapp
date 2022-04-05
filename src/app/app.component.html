@@ -170,5 +170,16 @@
   <br />
   <br />
 
+  <div>
+    <mat-list>
+      <mat-list-item  *ngFor="let person of persons; let i = index">
+        <h4 matLine>{{ person.name }}</h4>
+        <p matLine>{{ person.birth }}</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <br />
+  <br />
+
   <router-outlet></router-outlet>
 </div>
