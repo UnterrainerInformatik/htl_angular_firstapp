@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PeopleService } from './services/people.service';
 import { PersonDto } from './services/dtos/PersonDto';
 import { UserDto } from './services/dtos/UserDto';
+import { KeycloakAngularModule, KeycloakService, KeycloakEventType } from 'keycloak-angular';
 
 @Component({
   selector: 'app-root',
@@ -33,9 +34,11 @@ export class AppComponent {
   public person?: PersonDto
   public persons?: Array<PersonDto>
   public personsString?: String
+  public keycloakService?: KeycloakService
 
-  constructor(peopleService: PeopleService) {
+  constructor(peopleService: PeopleService, keycloakService: KeycloakService) {
     this.peopleService = peopleService
+    this.keycloakService = keycloakService
     this.init()
   }
 
@@ -44,6 +47,14 @@ export class AppComponent {
     this.person = await this.peopleService.get(1)
     this.persons = await this.peopleService.getList()
     this.personsString = JSON.stringify(this.persons, undefined, 2)
+    console.log('KeycloakService', this.keycloakService)
+    if (this.keycloakService) {
+      console.log(`Keycloak logged in:${await this.keycloakService.isLoggedIn()}`)
+      if (await this.keycloakService.isLoggedIn()) {
+        console.log(await this.keycloakService?.getToken())
+      }
+    }
+
   }
 
   async longRunning(name: string, ms: number, resolveFunction: boolean) {
