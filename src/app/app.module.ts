@@ -25,17 +25,15 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () => {
     keycloak.init({
       config: {
-        url: 'http://localhost:53961/auth',
+        url: 'http://localhost:65417/auth',
         realm: 'quarkus',
         clientId: 'webapp'
       },
       initOptions: {
-        onLoad: 'check-sso',
-        
+        onLoad: 'login-required',//'check-sso',
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html',
-        enableLogging: true,
-        checkLoginIframe: false,
+        enableLogging: true
       },
       enableBearerInterceptor: true
     }).then(success => console.log(`keycloak init returned:`, success)
@@ -45,7 +43,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         if (e.type == KeycloakEventType.OnTokenExpired) {
           keycloak.updateToken(20);
         }
-        console.log("Keycloak: ", e);
+        console.log("Keycloak event: ", e);
       }
     });
   }
