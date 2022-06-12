@@ -25,8 +25,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () => {
     keycloak.init({
       config: {
-        url: 'http://localhost:65417/auth',
-        realm: 'quarkus',
+        url: 'https://auth.unterrainer.info/auth',
+        realm: '2021-4bhif',
         clientId: 'webapp'
       },
       initOptions: {
