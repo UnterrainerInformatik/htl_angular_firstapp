@@ -43,10 +43,14 @@ export class AppComponent {
   }
 
   async init() {
+    this.keycloakInit()
     this.me = { id: 0, userName: 'no one' } //await this.peopleService.getCurrentUser()
     this.person = await this.peopleService.get(1)
     this.persons = await this.peopleService.getList()
     this.personsString = JSON.stringify(this.persons, undefined, 2)
+  }
+
+  async keycloakInit() {
     console.log('KeycloakService', this.keycloakService)
     if (this.keycloakService) {
       console.log(`Keycloak logged in:${await this.keycloakService.isLoggedIn()}`)
@@ -54,7 +58,14 @@ export class AppComponent {
         console.log(await this.keycloakService?.getToken())
       }
     }
+  }
 
+  async logout() {
+    console.log('logout')
+    await this.keycloakService?.logout()
+    console.log('logout keycloak')
+    window.location.reload()
+    console.log('logout reload')
   }
 
   async longRunning(name: string, ms: number, resolveFunction: boolean) {
